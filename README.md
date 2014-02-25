@@ -1,4 +1,9 @@
 Web_Crawler
 ===========
+Written in Python 2.7
 
-Working on creating a web crawler
+===========
+Using Urllib, Urllib2, and BeautifulSoup4
+
+===========
+Testing Scripts can be given upon request
