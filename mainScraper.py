@@ -9,10 +9,10 @@ import requests
 urlInput=raw_input("enter the page\n")
 
 def runSoup(urlInput):
-    url=urlInput
+    url="http://www."+ urlInput
     content=urllib2.urlopen(url).read()
     soup=BeautifulSoup(content)
-    print ("The title of this page is "+ soup.title.string+"\n")
+    print ("The title of this page is " + soup.title.string+"\n")
     links={}
     i=0
     for link in soup.find_all('a'):
@@ -22,5 +22,4 @@ def runSoup(urlInput):
     return links
 
 links = runSoup(urlInput)
-
 print links
