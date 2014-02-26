@@ -16,7 +16,11 @@ def runSoup(urlInput):
     links={}
     i=0
     for link in soup.find_all('a'):
-        print(link.get('href')) # prints all the links in a beautiful way
         links[i]=link.get('href')
+        #print links[i]
         i+=1
-runSoup(urlInput)
+    return links
+
+links = runSoup(urlInput)
+
+print links
