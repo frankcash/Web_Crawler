@@ -22,8 +22,11 @@ def countUsers():
             soupGen=BeautifulSoup(contentGen)
             temp=soupGen.find_all('p')
             if (1<len(temp)):
-                print links[foo]
-                print len(temp)
+                if (links[foo][:16]=="/events/1/teams/"): #takes a substring and compare it to a string
+                    print links[foo]
+                    print "/events/teams/+foo"
+                    #need to follow down these links
+                    #then get <p> tags that correalate to names
                 foo+=1
                 #print (temp)
             #end of for loop
