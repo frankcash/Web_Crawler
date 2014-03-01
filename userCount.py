@@ -21,10 +21,12 @@ def countUsers():
             contentGen=urllib2.urlopen(urlGen+links[foo])
             soupGen=BeautifulSoup(contentGen)
             temp=soupGen.find_all('p')
-            print temp
-            print links[foo]
-            print len(temp)
-            foo+=1
+            if (1<len(temp)):
+                print links[foo]
+                print len(temp)
+                foo+=1
+                #print (temp)
+            #end of for loop
         i+=1
         #print temp
 

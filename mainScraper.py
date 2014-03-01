@@ -17,9 +17,7 @@ def runSoup(urlInput):
     i=0
     for link in soup.find_all('a'):
         links[i]=link.get('href')
-        #print links[i]
         i+=1
     return links
-
 links = runSoup(urlInput)
 print links
