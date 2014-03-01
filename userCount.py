@@ -16,6 +16,8 @@ def countUsers():
         soup=BeautifulSoup(content)
         #temp=soup.find_all('p')
         links={}
+        urlLink={}
+        count=0
         for link in soup.find_all('a'): #grabs all the team ideas and stores in hash map
             links[foo]=link.get('href') #match the href with the actual text using magic
             #print links[foo]
@@ -28,13 +30,15 @@ def countUsers():
                     numberOfTeams+=1
                     print numberOfTeams
                     tempLink = links[foo]
-                    urlLink=urlGen+tempLink
+                    urlStink=urlGen+tempLink
+                    urlLink[count]=urlGen+tempLink
+                    count+=1
                     print urlLink #making sure the url is right
-                    contentLink=urllib2.urlopen(urlLink)
+                    contentLink=urllib2.urlopen(urlStink)
                     soupLink=BeautifulSoup(contentLink)
                     tempP = soup.find_all('p')
                     #print tempLink
-                    print tempP
+                   # print tempP
                     #need to follow down these links
                     #then get <p> tags that correalate to names
                 foo+=1
@@ -43,4 +47,4 @@ def countUsers():
         i+=1
         #print temp
 
-countUsers()
+print(countUsers())
