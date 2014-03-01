@@ -7,6 +7,7 @@ import requests
 def countUsers():
     i=1
     foo=0
+    numberOfTeams=0
     while(i<2):
         urlOne="http://registration.coded.io/events/1/teams"
         urlGen="http://registration.coded.io"
@@ -23,8 +24,17 @@ def countUsers():
             temp=soupGen.find_all('p')
             if (1<len(temp)):
                 if (links[foo][:16]=="/events/1/teams/"): #takes a substring and compare it to a string
-                    print links[foo]
-                    print "/events/teams/+foo"
+                    #I think I need a while loop here
+                    numberOfTeams+=1
+                    print numberOfTeams
+                    tempLink = links[foo]
+                    urlLink=urlGen+tempLink
+                    print urlLink #making sure the url is right
+                    contentLink=urllib2.urlopen(urlLink)
+                    soupLink=BeautifulSoup(contentLink)
+                    tempP = soup.find_all('p')
+                    #print tempLink
+                    print tempP
                     #need to follow down these links
                     #then get <p> tags that correalate to names
                 foo+=1
